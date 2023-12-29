@@ -160,13 +160,23 @@ let univ = {
   ],
 };
 
-let locationsTransformer = function (arr) {
-  const stateSearch = univ.features.attributes;
-  const states = stateSearch.map(function (State) {
-    return arr.features.State;
-  });
+// univ -> features -> attributes -> State
 
-  console.log(states);
-};
+// let stateList = [];
+// let locationsTransformer = function (arr) {
+//   for (let i = 0; i <= univ.features.length; i++) {
+//     univ.features.forEach(
+//       (element) => (stateList = stateList.push(univ.features.attributes.State))
+//     );
+//   }
+//   console.log(stateList);
+// };
 
-locationsTransformer(univ);
+// locationsTransformer();
+
+// Extracting states into a new array
+
+let statesArray = univ.features.map((feature) => feature.attributes.State);
+
+// Outputting the new array containing just the states
+console.log(statesArray);
